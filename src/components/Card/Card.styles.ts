@@ -61,7 +61,7 @@ export const StyledLine = styled.div`
   width: 75%;
   height: 80%;
   font-size: 42px;
-  border: 2px dotted ${({ theme }) => theme.colors.cloudBurst};
+  border: 2px dotted ${({ theme }) => theme.colors.cloudburst};
 
   ${mq.sm`
     font-size: 72px;

@@ -6,7 +6,7 @@ const theme = {
     error: '#cf1322',
     white: '#fff',
     black: '#000',
-    cloudBurst: '#1F3251',
+    cloudburst: '#1F3251',
   },
   border: {
     radius: '8px',
