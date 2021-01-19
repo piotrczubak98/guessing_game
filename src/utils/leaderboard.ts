@@ -1,4 +1,7 @@
-import { Result } from '../types/Leaderboard';
+type Result = {
+  username: string;
+  score: number;
+};
 
 const generateLeaderboard = (): Array<Result> => {
   const result: Array<Result> = [];

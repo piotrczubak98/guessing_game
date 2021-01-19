@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { setName } from '../../../reducers/user.slice';
+import { setName } from '../../../reducers/user';
 import { RootState } from '../../../utils/store';
 
 import { StartingForm } from '../../StartingForm/StartingForm';

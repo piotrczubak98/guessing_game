@@ -1,7 +1,6 @@
 /* eslint-disable import/no-cycle */
-import user from './user.slice';
-import game from './game.slice';
-import score from './score.slice';
-import leaderboard from './leaderboard.slice';
+import user from './user';
+import game from './game';
+import leaderboard from './leaderboard';
 
-export { user, game, score, leaderboard };
+export { user, game, leaderboard };

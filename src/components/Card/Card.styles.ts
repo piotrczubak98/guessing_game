@@ -45,6 +45,7 @@ export const StyledFront = styled.div`
   height: 100%;
   font-size: 58px;
   backface-visibility: hidden;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const StyledBack = styled(StyledFront)`

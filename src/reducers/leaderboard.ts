@@ -1,10 +1,19 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import Leaderboard, { Result } from '../types/Leaderboard';
 // eslint-disable-next-line import/no-cycle
 import { AppThunk } from '../utils/store';
 import generateLeaderboard from '../utils/leaderboard';
+
+type Result = {
+  username: string;
+  score: number;
+};
+
+type Leaderboard = {
+  results: Array<Result>;
+  currentPlace: number | null;
+};
 
 const initialState: Leaderboard = {
   results: generateLeaderboard(),
@@ -34,12 +43,12 @@ export const leaderboardSlice = createSlice({
 const { addResult, deleteCurrentPlace } = leaderboardSlice.actions;
 
 const saveResult = (): AppThunk => (dispatch, getStore) => {
-  const { user, leaderboard, score } = getStore();
+  const { user, leaderboard, game } = getStore();
   const { results } = leaderboard;
 
-  if (score.value >= results[results.length - 1].score) {
+  if (game.score >= results[results.length - 1].score) {
     const result: Result = {
-      score: score.value,
+      score: game.score,
       username: user.name,
     };
 

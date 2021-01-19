@@ -6,10 +6,6 @@ import Home from './components/pages/Home/Home';
 import Game from './components/pages/Game/Game';
 import Leaderboard from './components/pages/Leaderboard/Leaderboard';
 
-// import config from './config';
-
-// const { ROUTES } = config;
-
 function App(): JSX.Element {
   return (
     <Router>

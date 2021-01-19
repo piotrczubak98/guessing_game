@@ -5,7 +5,7 @@ import Card from '../Card/Card';
 import CardModel from '../../models/Card';
 import { CardProps } from '../Card/Card.d';
 
-import { handleCardClick } from '../../reducers/game.slice';
+import { handleCardClick } from '../../reducers/game';
 import { RootState } from '../../utils/store';
 
 import { StyledContainer } from './Board.styles';

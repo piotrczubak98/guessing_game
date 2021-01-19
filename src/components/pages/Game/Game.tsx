@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Board from '../../Board/Board';
 import Summary from '../../Summary/Summary';
 
-import { start, resetGame } from '../../../reducers/game.slice';
+import { start, resetGame } from '../../../reducers/game';
 import { RootState } from '../../../utils/store';
 
 import { StyledBoardWrapper } from './Game.styles';

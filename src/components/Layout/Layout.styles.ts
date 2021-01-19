@@ -5,6 +5,7 @@ import { mq } from '../../utils/media';
 
 export const StyledLayout = styled(Layout)`
   min-height: 100vh;
+  background-color: beige;
 `;
 
 export const StyledMenu = styled(Menu)`

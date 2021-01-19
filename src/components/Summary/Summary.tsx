@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Modal, Button } from 'antd';
 
-import { start } from '../../reducers/game.slice';
+import { start } from '../../reducers/game';
 import { RootState } from '../../utils/store';
 
 const Summary: FC = () => {
   const dispatch = useDispatch();
 
   const { score, isWon, username, place } = useSelector((state: RootState) => ({
-    score: state.score.value,
+    score: state.game.score,
     place: state.leaderboard.currentPlace,
     isWon: state.game.state === 'won',
     username: state.user.name,
@@ -22,7 +22,7 @@ const Summary: FC = () => {
 
   return (
     <Modal
-      title={<h3>Contgratulations {username}!</h3>}
+      title={<h3>Congratulations {username}!</h3>}
       visible={isWon}
       closable={false}
       footer={[

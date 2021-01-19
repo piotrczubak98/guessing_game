@@ -4,10 +4,22 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import Board from '../models/Board';
 import Card from '../models/Card';
-import GameState from '../types/GameState';
 import { AppThunk } from '../utils/store';
-import { addPointsForGuess, subtractPointsForMistake, resetScore } from './score.slice';
-import { saveResult } from './leaderboard.slice';
+import { saveResult } from './leaderboard';
+
+type GameState = {
+  cards: Array<Card>;
+  shownCard: Card | null;
+  isGameFrozen: boolean;
+  state: 'won' | 'started' | null;
+  pairsLeft: number;
+  score: number;
+};
+
+const rules = {
+  guess: 100,
+  miss: -10,
+};
 
 const initialState: GameState = {
   cards: [],
@@ -15,6 +27,7 @@ const initialState: GameState = {
   isGameFrozen: false,
   state: null,
   pairsLeft: 0,
+  score: 0,
 };
 
 export const gameSlice = createSlice({
@@ -34,6 +47,7 @@ export const gameSlice = createSlice({
       state.cards = cards;
       state.state = 'started';
       state.pairsLeft = cards.length / 2;
+      state.score = 0;
     },
 
     setShownCard: (state, action: PayloadAction<number>) => {
@@ -96,10 +110,33 @@ export const gameSlice = createSlice({
     reset: (state) => {
       state.state = null;
     },
+
+    addPointsForGuess: (state) => {
+      state.score += rules.guess;
+    },
+
+    subtractPointsForMistake: (state) => {
+      state.score += rules.miss;
+    },
+
+    resetScore: (state) => {
+      state.score = 0;
+    },
   },
 });
 
-const { init, showSecondCard, setShownCard, onGuess, onMistake, setGameAsWon, reset } = gameSlice.actions;
+const {
+  init,
+  showSecondCard,
+  setShownCard,
+  onGuess,
+  onMistake,
+  setGameAsWon,
+  reset,
+  subtractPointsForMistake,
+  addPointsForGuess,
+  resetScore,
+} = gameSlice.actions;
 
 const start = (): AppThunk => (dispatch) => {
   const { cards } = new Board(16);

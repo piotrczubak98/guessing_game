@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { Form, Input, Button, Card } from 'antd';
+import { Form, Input, Button } from 'antd';
 
-import { ButtonWrapper } from './StartingForm.styles';
+import { ButtonWrapper, StyledCard } from './StartingForm.styles';
 
 type StartingFormProps = {
   username?: string;
@@ -9,18 +9,22 @@ type StartingFormProps = {
 };
 
 export const StartingForm: FC<StartingFormProps> = ({ username = '', onSubmit }) => (
-  <Card>
+  <StyledCard>
     <Form initialValues={{ username }} onFinish={onSubmit} layout="vertical">
-      <Form.Item label="Name" name="username" rules={[{ required: true, message: 'This field is required' }]}>
+      <Form.Item
+        label={<label style={{ color: 'white', fontSize: '20px' }}>Name</label>}
+        name="username"
+        rules={[{ required: true, message: 'This field is required' }]}
+      >
         <Input size="large" placeholder="Please enter your name" />
       </Form.Item>
       <Form.Item>
         <ButtonWrapper>
-          <Button type="primary" htmlType="submit" size="middle" block>
+          <Button type="default" htmlType="submit" size="middle" block>
             Start
           </Button>
         </ButtonWrapper>
       </Form.Item>
     </Form>
-  </Card>
+  </StyledCard>
 );

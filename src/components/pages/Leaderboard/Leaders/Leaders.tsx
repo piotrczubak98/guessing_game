@@ -3,7 +3,11 @@ import { useSelector } from 'react-redux';
 import { Table } from 'antd';
 
 import { RootState } from '../../../../utils/store';
-import { Result } from '../../../../types/Leaderboard';
+
+type Result = {
+  username: string;
+  score: number;
+};
 
 interface ResultWithIndex extends Result {
   index: number;
