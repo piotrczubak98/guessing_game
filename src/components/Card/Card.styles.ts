@@ -9,7 +9,7 @@ export const StyledCard = styled.div`
   position: relative;
   width: 70px;
   height: 100px;
-  perspective: 500px;
+  perspective: 300px;
   cursor: pointer;
 
   ${mq.sm`
@@ -23,7 +23,7 @@ export const StyledContent = styled.div<{ side: CardProps['side'] }>`
   width: 100%;
   height: 100%;
   border-radius: ${({ theme }) => theme.border.radius};
-  box-shadow: 0 0 15px ${({ theme }) => lighten(0.7, theme.colors.black)};
+  box-shadow: 0 0 20px ${({ theme }) => lighten(0.5, theme.colors.black)};
   transform-style: preserve-3d;
   transition: transform ${({ theme }) => theme.animation.duration.normal};
 

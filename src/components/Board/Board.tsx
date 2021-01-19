@@ -2,8 +2,9 @@ import React, { FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Card from '../Card/Card';
-import { CardProps } from '../Card/Card.d';
 import CardModel from '../../models/Card';
+import { CardProps } from '../Card/Card.d';
+
 import { handleCardClick } from '../../reducers/game.slice';
 import { RootState } from '../../utils/store';
 
@@ -28,9 +29,9 @@ const Board: FC = () => {
   const { cards, isGameFrozen, shownCard } = useSelector((state: RootState) => state.game);
   const dispatch = useDispatch();
   const cardClick = (id: number) => {
-    const isTheSameCard = shownCard?.cardId === id;
+    const isMatch = shownCard?.cardId === id;
 
-    if (!isGameFrozen && !isTheSameCard) {
+    if (!isGameFrozen && !isMatch) {
       dispatch(handleCardClick(id));
     }
   };

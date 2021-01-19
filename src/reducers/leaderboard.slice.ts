@@ -2,9 +2,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import Leaderboard, { Result } from '../types/Leaderboard';
-import generateLeaderboard from '../utils/leaderboard';
 // eslint-disable-next-line import/no-cycle
 import { AppThunk } from '../utils/store';
+import generateLeaderboard from '../utils/leaderboard';
 
 const initialState: Leaderboard = {
   results: generateLeaderboard(),
@@ -22,7 +22,6 @@ export const leaderboardSlice = createSlice({
       state.results.sort((a, b) => {
         return b.score - a.score;
       });
-      state.results.pop();
 
       state.currentPlace = state.results.indexOf(result) + 1;
     },

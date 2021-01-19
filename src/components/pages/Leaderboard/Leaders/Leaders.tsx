@@ -1,15 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { Table } from 'antd';
 
 import { RootState } from '../../../../utils/store';
+import { Result } from '../../../../types/Leaderboard';
 
-type Result = {
-  username: string;
-  score: number;
-};
-
-interface ExpandedResult extends Result {
+interface ResultWithIndex extends Result {
   index: number;
 }
 
@@ -18,7 +14,7 @@ const columns = [
     title: 'Place',
     dataIndex: 'index',
     sorter: {
-      compare: (a: ExpandedResult, b: ExpandedResult) => a.index - b.index,
+      compare: (a: ResultWithIndex, b: ResultWithIndex) => a.index - b.index,
     },
   },
   {
@@ -29,15 +25,16 @@ const columns = [
     title: 'Score',
     dataIndex: 'score',
     sorter: {
-      compare: (a: ExpandedResult, b: ExpandedResult) => a.score - b.score,
+      compare: (a: ResultWithIndex, b: ResultWithIndex) => a.score - b.score,
     },
   },
 ];
 
-const LeadersTable = (): JSX.Element => {
+const LeadersTable: FC = () => {
   const { results } = useSelector((state: RootState) => ({
     results: state.leaderboard.results,
   }));
+
   return (
     <>
       <Table

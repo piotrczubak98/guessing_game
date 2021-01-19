@@ -1,38 +1,33 @@
 import React, { FC, ReactNode } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Menu } from 'antd';
 
-import { StyledContent, StyledLayout, StyledContentWrapper, StyledMenuWrapper } from './Layout.styles';
+import { StyledContent, StyledLayout, StyledContentWrapper, StyledMenuWrapper, StyledMenu } from './Layout.styles';
 
 type LayoutProps = {
   children: ReactNode;
 };
 
-const { Header } = StyledLayout;
-
-const Layout: FC<LayoutProps> = ({ children }): JSX.Element => {
+const Layout: FC<LayoutProps> = ({ children }) => {
   const history = useHistory();
 
-  const handleItemClick = (route: string) => {
-    history.push(route);
+  const handleItemClick = (path: string) => {
+    history.push(path);
   };
 
   return (
     <StyledLayout>
-      <Header style={{ background: 'transparent' }}>
-        <StyledContent>
-          <StyledMenuWrapper>
-            <Menu theme="dark" mode="horizontal" selectable={false}>
-              <Menu.Item onClick={() => handleItemClick('/')} style={{ fontSize: '20px' }}>
-                Home
-              </Menu.Item>
-              <Menu.Item onClick={() => handleItemClick('/leaderboard')} style={{ fontSize: '20px' }}>
-                Leaderboard
-              </Menu.Item>
-            </Menu>
-          </StyledMenuWrapper>
-        </StyledContent>
-      </Header>
+      <StyledContent>
+        <StyledMenuWrapper>
+          <StyledMenu mode="horizontal" selectable={false}>
+            <StyledMenu.Item onClick={() => handleItemClick('/')} style={{ fontSize: '20px' }}>
+              Home
+            </StyledMenu.Item>
+            <StyledMenu.Item onClick={() => handleItemClick('/leaderboard')} style={{ fontSize: '20px' }}>
+              Leaderboard
+            </StyledMenu.Item>
+          </StyledMenu>
+        </StyledMenuWrapper>
+      </StyledContent>
       <StyledContent>
         <StyledContentWrapper>{children}</StyledContentWrapper>
       </StyledContent>

@@ -1,10 +1,20 @@
 import styled from 'styled-components';
-import { Layout } from 'antd';
+import { Layout, Menu } from 'antd';
 
 import { mq } from '../../utils/media';
 
 export const StyledLayout = styled(Layout)`
   min-height: 100vh;
+`;
+
+export const StyledMenu = styled(Menu)`
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: ${({ theme }) => theme.colors.cloudburst};
+  color: ${({ theme }) => theme.colors.white};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const StyledContent = styled(Layout.Content)`
@@ -37,5 +47,5 @@ export const StyledContentWrapper = styled.div`
 `;
 
 export const StyledMenuWrapper = styled.div`
-  margin: 0 -20px;
+  margin: 0 -10px;
 `;

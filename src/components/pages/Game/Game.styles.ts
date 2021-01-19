@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-const StyledBoardWrapper = styled.div`
-  padding-top: 24px;
+export const StyledBoardWrapper = styled.div`
+  padding-top: 10px;
 `;
-
-export { StyledBoardWrapper };
