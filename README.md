@@ -1,6 +1,6 @@
-# react-memo
+# Guessing-game
 
-Simple memory game
+Simple guessing game to test your memory.
 
 ## Requirements
 
@@ -13,18 +13,8 @@ Simple memory game
 yarn install
 ```
 
-## How to run
-
 ### Development env
 
 ```sh
 yarn start
-```
-
-### Production env
-
-```sh
-yarn build
-
-npx serve -s build
 ```
